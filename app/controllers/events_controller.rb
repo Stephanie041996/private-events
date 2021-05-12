@@ -7,7 +7,14 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1 or /events/1.json
+  
   def show
+    @attendee = Attendee.new
+    @attendee_count = @events.attendees.count
+    @attendee_list = @events.attendees.all
+    if user_signed_in?
+    @will_join = Attendee.where(user_id: current_user.id, event_id: @events.id).any? ? true : false
+    end
   end
 
   # GET /events/new
@@ -21,6 +28,7 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
+    @user = current_user
     @event = current_user.events.build(event_params)
 
     respond_to do |format|

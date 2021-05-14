@@ -19,5 +19,15 @@
   <strong>Event Creator:</strong>
   <%= @event.creator_id %>
 </p>
+<div>
+<%= button_to "Attend", event_attended_event_path(@event), method: :post, confirm: "really?"%>
+</div>
+
+<p>
+  <strong>List of Attendees:</strong>
+  <%= @event.attendees %>
+
+</p>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

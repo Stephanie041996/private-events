@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: [:index]
   # GET /events or /events.json
   def index
     @events = Event.all
@@ -58,6 +58,24 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def attend
+    @event.attendees << current_user
+    @event.save
+  end
+
+  def attended_event
+    @event = Event.find_by(params[:events_id])
+    if @event.attendees.include?(current_user)
+      redirect_to @event, notice: 'You are already on the list'
+    else
+      @event.attendees << current_user
+      redirect_to @event
+    end
+  end
+
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

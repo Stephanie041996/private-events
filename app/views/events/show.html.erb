@@ -14,12 +14,10 @@
   <strong>Location:</strong>
   <%= @event.Location %>
 </p>
-<p>
- <strong>Attendee:</strong>
-  <%@attendee_list.each do |Attendee|%>
 
-  <%= attendee.user.email%>
-  <%end%>
+<p>
+  <strong>Event Creator:</strong>
+  <%= @event.creator_id %>
 </p>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

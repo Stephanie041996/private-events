@@ -9,17 +9,12 @@ class EventsController < ApplicationController
   # GET /events/1 or /events/1.json
   
   def show
-    @attendee = Attendee.new
-    @attendee_count = @events.attendees.count
-    @attendee_list = @events.attendees.all
-    if user_signed_in?
-    @will_join = Attendee.where(user_id: current_user.id, event_id: @events.id).any? ? true : false
-    end
+    
   end
 
   # GET /events/new
   def new
-    @event = current_user.events.build
+    @event = Event.new
   end
 
   # GET /events/1/edit
@@ -28,7 +23,7 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @user = current_user
+   
     @event = current_user.events.build(event_params)
 
     respond_to do |format|
@@ -72,6 +67,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:date, :title, :Location, :user_id)
+      params.require(:event).permit(:date, :title, :Location, :creator_id)
     end
 end

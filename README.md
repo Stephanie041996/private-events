@@ -1,7 +1,7 @@
 # private-events
 
 - This project entails building a site with functionalities similar to evenbrite. The site permits users to create events and then manage user signups. Also, Events are shown to have specific dates and  locations. 
-The concept of many-to-many relationships bewteen models is emphasized as well.
+The concept of many-to-many relationships between models is emphasized as well.
 
 ## Built With
 

@@ -25,7 +25,9 @@
 
 <p>
   <strong>List of Attendees:</strong>
-  <%= @event.attendees %>
+  <% @event.event_attendee.each do |attendee| %>
+      <p><%= attendee.name %></p>
+    <% end %>
 
 </p>
 

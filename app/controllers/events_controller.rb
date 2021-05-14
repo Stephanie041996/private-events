@@ -65,7 +65,7 @@ class EventsController < ApplicationController
   end
 
   def attended_event
-    @event = Event.find_by(params[:events_id])
+    @event = Event.find_by(params[:id])
     if @event.attendees.include?(current_user)
       redirect_to @event, notice: 'You are already on the list'
     else

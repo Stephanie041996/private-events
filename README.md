@@ -29,13 +29,12 @@ Next, migrate the database:
 
 ```
 $ rails db:migrate
+
 ```
 ## Deploying
 - Run "rails server" in terminal
 - open https://localhost:3000 in browser
 - sign up and enjoy
-
-
 
 ## Branches
 
@@ -44,10 +43,13 @@ Simply check out the corresponding branch using `git checkout`:
 ```
 $ git checkout <branch name>
 ```
+## Running RSpec tests
+
+- `cd` into the project directory;
+- Run `bundle exec rspec`. 
+
 
 ## Authors
-
-
 
 👤 **Juliana Osemeke**
 - GitHub: [@JulianaOsemeke](https://github.com/JulianaOsemeke)

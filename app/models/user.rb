@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_many :events, foreign_key: 'creator_id', class_name: 'Event'
   has_many :event_attendees, foreign_key: 'attendee_id'
   has_many :attended_events, through: :event_attendees, source: :attendee
+
+  scope :past, -> { where('date < ?', Date.today).order(date: :desc) }
+  scope :future, -> { where('date > ?', Date.today).order(:date) }
+  validates :location, :title, :date, presence: true
 end

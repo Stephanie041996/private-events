@@ -12,7 +12,7 @@
 
 <p>
   <strong>Location:</strong>
-  <%= @event.Location %>
+  <%= @event.location %>
 </p>
 
 <p>
@@ -23,13 +23,7 @@
 <%= button_to "Attend", event_attended_event_path(@event), method: :post, confirm: "really?"%>
 </div>
 
-<p>
-  <strong>List of Attendees:</strong>
-  <% @event.event_attendee.each do |attendee| %>
-      <p><%= attendee.name %></p>
-    <% end %>
 
-</p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

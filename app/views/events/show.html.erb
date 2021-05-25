@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @event.location %>
+</p>
+
+<p>
+  <strong>Event Creator:</strong>
+  <%= @event.creator_id %>
+</p>
+<div>
+<%= button_to "Attend", event_attended_event_path(@event), method: :post, confirm: "really?"%>
+</div>
+
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
+
+
+<% @event.attendees.each do |attendee| %>
+<%= attendee.email %>
+<% end %>
